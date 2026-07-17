@@ -47,10 +47,72 @@
     </nav>
 
     <div class="page-body">
-      <div class="banner-wrapper">
-      <!-- Replace banner.jpg with a photo of your choosing -->
-      <img src="banner.jpg" alt="" class="banner-img" />
-      <span class="banner-caption">Democracies and Electoral Systems</span>
+      <div class="carousel">
+  <div class="carousel-track">
+    <div class="carousel-slide active">
+      <img src="banner.jpg" alt="Democracies and Electoral Systems" />
+      <span class="carousel-caption">Democracies and Electoral Systems</span>
+    </div>
+    <div class="carousel-slide">
+      <img src="Predicted_VoteShare.png" alt="Predicted Vote Share" />
+      <span class="carousel-caption">Predicted and Observed Vote Shares in the UK</span>
+    </div>
+    <div class="carousel-slide">
+      <img src="House_Brazil58.jpg" alt="House Brazil" />
+      <span class="carousel-caption">Parties in the House of Representatives — Brazil, 1958</span>
+    </div>
+    <div class="carousel-slide">
+      <img src="Polarization_NewPlot.png" alt="Polarization" />
+      <span class="carousel-caption">Elite Polarization in the U.S. House Representatives</span>
+    </div>
+    <div class="carousel-slide">
+      <img src="PollingStations_Map.png" alt="Polling Stations Map" />
+      <span class="carousel-caption">Polling Stations Across Brazil</span>
+    </div>
+  </div>
+
+  <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
+  <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+
+  <div class="carousel-dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+    <span class="dot" onclick="goToSlide(3)"></span>
+    <span class="dot" onclick="goToSlide(4)"></span>
+  </div>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function moveCarousel(dir) {
+    showSlide(current + dir);
+    resetTimer();
+  }
+
+  function goToSlide(n) {
+    showSlide(n);
+    resetTimer();
+  }
+
+  let timer = setInterval(() => showSlide(current + 1), 5000);
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => showSlide(current + 1), 5000);
+  }
+</script>
     </div>  
       <p>
         Welcome! I am an Assistant Professor in the Department of Political Science, at Louisiana State University.
