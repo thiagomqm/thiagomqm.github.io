@@ -364,7 +364,7 @@ a:hover { text-decoration: underline; }
 /* ════════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════════ */
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   body { flex-direction: column; }
   .sidebar {
     position: relative;
